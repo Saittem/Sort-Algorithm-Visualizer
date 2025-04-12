@@ -1,0 +1,10 @@
+F:\Repositories\Sort-Algorithm-Visualizer\Sort-Algorithm-Visualizer\bin\Debug\Sort-Algorithm-Visualizer.exe.config
+F:\Repositories\Sort-Algorithm-Visualizer\Sort-Algorithm-Visualizer\bin\Debug\Sort-Algorithm-Visualizer.exe
+F:\Repositories\Sort-Algorithm-Visualizer\Sort-Algorithm-Visualizer\bin\Debug\Sort-Algorithm-Visualizer.pdb
+F:\Repositories\Sort-Algorithm-Visualizer\Sort-Algorithm-Visualizer\obj\Debug\Sort-Algorithm-Visualizer.csproj.AssemblyReference.cache
+F:\Repositories\Sort-Algorithm-Visualizer\Sort-Algorithm-Visualizer\obj\Debug\Sort_Algorithm_Visualizer.Form1.resources
+F:\Repositories\Sort-Algorithm-Visualizer\Sort-Algorithm-Visualizer\obj\Debug\Sort_Algorithm_Visualizer.Properties.Resources.resources
+F:\Repositories\Sort-Algorithm-Visualizer\Sort-Algorithm-Visualizer\obj\Debug\Sort-Algorithm-Visualizer.csproj.GenerateResource.cache
+F:\Repositories\Sort-Algorithm-Visualizer\Sort-Algorithm-Visualizer\obj\Debug\Sort-Algorithm-Visualizer.csproj.CoreCompileInputs.cache
+F:\Repositories\Sort-Algorithm-Visualizer\Sort-Algorithm-Visualizer\obj\Debug\Sort-Algorithm-Visualizer.exe
+F:\Repositories\Sort-Algorithm-Visualizer\Sort-Algorithm-Visualizer\obj\Debug\Sort-Algorithm-Visualizer.pdb
