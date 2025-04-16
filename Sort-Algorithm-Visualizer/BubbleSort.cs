@@ -15,7 +15,8 @@ namespace Sort_Algorithm_Visualizer
         int maxValue;
         Brush WhiteBrush = new SolidBrush(Color.White);
         Brush BlackBrush = new SolidBrush(Color.Black);
-        public void Sort(int[] array_lc, Graphics g_lc, int maxValue_lc)
+
+        public bool Sort(int[] array_lc, Graphics g_lc, int maxValue_lc)
         {
             array = array_lc;
             g = g_lc;
@@ -33,6 +34,7 @@ namespace Sort_Algorithm_Visualizer
                 sorted = IsSorted();
             }
 
+            return sorted;
         }
 
         private void Swap(int i, int v)
@@ -41,11 +43,11 @@ namespace Sort_Algorithm_Visualizer
             array[i] = array[i + 1];
             array[i + 1] = temp;
 
-            g.FillRectangle(BlackBrush, i, 0, 1, maxValue);
-            g.FillRectangle(BlackBrush, v, 0, 1, maxValue);
+            g.FillRectangle(BlackBrush, i * array.Length, 0, array.Length, maxValue);
+            g.FillRectangle(BlackBrush, v * array.Length, 0, 1, maxValue);
 
-            g.FillRectangle(WhiteBrush, i, maxValue - array[i], 1, maxValue);
-            g.FillRectangle(WhiteBrush, v, maxValue - array[v], i, maxValue);
+            g.FillRectangle(WhiteBrush, i * array.Length, maxValue - array[i], array.Length, maxValue);
+            g.FillRectangle(WhiteBrush, v * array.Length, maxValue - array[v], array.Length, maxValue);
         }
 
         private bool IsSorted()

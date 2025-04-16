@@ -9,6 +9,6 @@ namespace Sort_Algorithm_Visualizer
 {
     internal interface SortEngine
     {
-        void Sort(int[] array, Graphics g, int maxValue);
+        bool Sort(int[] array, Graphics g, int maxValue);
     }
 }

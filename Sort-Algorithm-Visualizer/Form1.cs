@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,16 +18,18 @@ namespace Sort_Algorithm_Visualizer
         int numEntries;
         int[] array;
         Graphics g;
+        Stopwatch stopwatch = new Stopwatch();
+
         public Form1()
         {
             InitializeComponent();
             maxValue = panel.Height;
-            numEntries = panel.Width;
             g = panel.CreateGraphics();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            numEntries = (int)(panel.Width / numCount.Value);
             array = new int[numEntries];
             Random random = new Random();
             panel.Controls.Clear();
@@ -64,14 +68,22 @@ namespace Sort_Algorithm_Visualizer
 
             for (int i = 0; i < numEntries; i++)
             {
-                g.FillRectangle(Brushes.White, i, maxValue - array[i], 1, maxValue);
+                g.FillRectangle(Brushes.White, i * numEntries, maxValue - array[i], numEntries - 1, array[i]);
             }
         }
 
         private void btnSort_Click(object sender, EventArgs e)
         {
             SortEngine sortEngine = new BubbleSort();
-            sortEngine.Sort(array, g, maxValue);
+
+            stopwatch.Restart();
+            stopwatch.Start();
+
+            if (sortEngine.Sort(array, g, maxValue))
+            {
+                stopwatch.Stop();
+                MessageBox.Show(stopwatch.Elapsed.ToString());
+            }
         }
     }
 }
