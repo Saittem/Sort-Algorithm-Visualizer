@@ -30,6 +30,7 @@ namespace Sort_Algorithm_Visualizer
                     {
                         Swap(i, i + 1);
                     }
+                    //Console.Beep(array[i] * 100, 1);
                 }
                 sorted = IsSorted();
             }
