@@ -17,6 +17,7 @@ namespace Sort_Algorithm_Visualizer
         int maxValue;
         int numEntries;
         int[] array;
+        float columnWidth;
         Graphics g;
         Stopwatch stopwatch = new Stopwatch();
 
@@ -25,64 +26,66 @@ namespace Sort_Algorithm_Visualizer
             InitializeComponent();
             maxValue = panel.Height;
             g = panel.CreateGraphics();
+
+            algorithmBox.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            numEntries = (int)(panel.Width / numCount.Value);
+            numEntries = (int)numCount.Value;
             array = new int[numEntries];
             Random random = new Random();
             panel.Controls.Clear();
             panel.Refresh();
+            columnWidth = Math.Abs(panel.Width / numEntries);
 
             for (int i = 0; i < numEntries; i++)
             {
                 array[i] = random.Next(0, maxValue);
             }
 
-            /*if (algorithmBox.Text == "BubbleSort Random")
-            {
-                for (int i = 0; i < numEntries; i++)
-                {
-                    array[i] = random.Next(0, maxValue);
-                }
-            }
-            else if (algorithmBox.Text == "BubbleSort Posloupně")
-            {
-                HashSet<int> usedNumbers = new HashSet<int>();
-
-                for (int i = 0; i < numEntries; i++)
-                {
-                    int number;
-
-                    do
-                    {
-                        number = random.Next(0, maxValue);
-                    }
-                    while (usedNumbers.Contains(number));
-
-                    array[i] = number;
-                    usedNumbers.Add(number);
-                }
-            }*/
-
             for (int i = 0; i < numEntries; i++)
             {
-                g.FillRectangle(Brushes.White, i * numEntries, maxValue - array[i], numEntries - 1, array[i]);
+                g.FillRectangle(Brushes.White, i * columnWidth, maxValue - array[i], columnWidth - 1, array[i]);
             }
         }
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            SortEngine sortEngine = new BubbleSort();
-
             stopwatch.Restart();
             stopwatch.Start();
 
-            if (sortEngine.Sort(array, g, maxValue))
+            if (algorithmBox.Text == "BubbleSort")
             {
-                stopwatch.Stop();
-                MessageBox.Show(stopwatch.Elapsed.ToString());
+                BubbleSort bubbleSort = new BubbleSort();
+
+                if (bubbleSort.Sort(array, g, maxValue, columnWidth))
+                {
+                    stopwatch.Stop();
+                    MessageBox.Show(stopwatch.Elapsed.ToString());
+                }
+            }
+            else if (algorithmBox.Text == "InsertSort")
+            {
+
+            }
+            else if (algorithmBox.Text == "BogoSort")
+            {
+                BogoSort bogoSort = new BogoSort();
+
+                if (bogoSort.Sort(array, g, maxValue, columnWidth))
+                {
+                    stopwatch.Stop();
+                    MessageBox.Show(stopwatch.Elapsed.ToString());
+                }
+            }
+            else if (algorithmBox.Text == "StalinSort")
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Prosím vyberte jaký třídící algoritmus chcete.");
             }
         }
     }

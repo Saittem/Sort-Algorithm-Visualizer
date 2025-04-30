@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sort_Algorithm_Visualizer
 {
-    public class BubbleSort
+    public class BogoSort
     {
         bool sorted = false;
         int[] array;
@@ -26,30 +26,31 @@ namespace Sort_Algorithm_Visualizer
 
             while (!sorted)
             {
-                for (int i = 0; i < array.Length - 1; i++)
-                {
-                    if (array[i] > array[i + 1])
-                    {
-                        Swap(i, i + 1);
-                        //System.Threading.Thread.Sleep(500);
-                    }
-                }
+                Shuffle(array);
+
                 sorted = IsSorted();
             }
 
             return sorted;
         }
 
-        private void Swap(int i, int v)
+        private void Shuffle(int[] array)
         {
-            int temp  = array[i];
-            array[i] = array[i + 1];
-            array[i + 1] = temp;
+            Random random = new Random();
 
-            g.FillRectangle(BlackBrush, i * columnWidth, 0, columnWidth, maxValue);
+            for (int i = 0; i < array.Length - 1; ++i)
+            {
+
+            }
+
+            int r = random.Next(0, array.Length);
+            int v = random.Next(0, array.Length);
+            (array[r], array[v]) = (array[v], array[r]);
+
+            g.FillRectangle(BlackBrush, r * columnWidth, 0, columnWidth, maxValue);
             g.FillRectangle(BlackBrush, v * columnWidth, 0, columnWidth, maxValue);
 
-            g.FillRectangle(WhiteBrush, i * columnWidth, maxValue - array[i], columnWidth - 1, maxValue);
+            g.FillRectangle(WhiteBrush, r * columnWidth, maxValue - array[r], columnWidth - 1, maxValue);
             g.FillRectangle(WhiteBrush, v * columnWidth, maxValue - array[v], columnWidth - 1, maxValue);
         }
 

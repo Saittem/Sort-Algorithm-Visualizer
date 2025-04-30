@@ -52,9 +52,11 @@
             // 
             this.algorithmBox.FormattingEnabled = true;
             this.algorithmBox.Items.AddRange(new object[] {
-            "BubbleSort Random",
-            "BubbleSort Posloupně",
-            "BogoSort"});
+            "BubbleSort",
+            "InsertSort",
+            "BogoSort",
+            "StalinSort",
+            "BalašSort"});
             this.algorithmBox.Location = new System.Drawing.Point(92, 25);
             this.algorithmBox.Name = "algorithmBox";
             this.algorithmBox.Size = new System.Drawing.Size(217, 21);
@@ -91,6 +93,11 @@
             // numCount
             // 
             this.numCount.Location = new System.Drawing.Point(369, 25);
+            this.numCount.Maximum = new decimal(new int[] {
+            400,
+            0,
+            0,
+            0});
             this.numCount.Minimum = new decimal(new int[] {
             4,
             0,
